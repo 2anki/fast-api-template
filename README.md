@@ -1,0 +1,87 @@
+# FastAPI Template
+
+A well-structured FastAPI template project with a modular architecture, designed for scalability and maintainability.
+
+## Project Structure
+
+```
+fast-api-template/
+├── app/                          # Main application package
+│   ├── __init__.py               # Makes app a Python package
+│   ├── main.py                   # FastAPI app configuration
+│   ├── models/                   # Data models
+│   │   ├── __init__.py
+│   │   └── items.py              # Item Pydantic model
+│   ├── routes/                   # API route handlers
+│   │   ├── __init__.py
+│   │   ├── items.py              # Item-related endpoints
+│   │   └── root.py               # Root endpoint
+│   └── services/                 # Business logic
+│       ├── __init__.py
+│       └── item_service.py       # Item-related business logic
+├── main.py                       # Entry point for running the app
+├── tests/                        # Test directory
+│   ├── __init__.py
+│   ├── conftest.py               # Pytest fixtures
+│   ├── routes/                   # Route tests
+│   │   ├── __init__.py
+│   │   ├── test_items.py         # Tests for item routes
+│   │   └── test_root.py          # Tests for root route
+│   └── services/                 # Service tests
+│       ├── __init__.py
+│       └── test_item_service.py  # Tests for item service
+```
+
+## Features
+
+- Modular architecture with separation of concerns
+- Comprehensive test suite
+- Clean project structure
+- Type hints throughout the codebase
+- Ready for production deployment
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/fast-api-template.git
+cd fast-api-template
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+## Running the Application
+
+```bash
+# Run the application with hot reload
+python main.py
+
+# Or use uvicorn directly
+uvicorn app.main:app --reload
+```
+
+The API will be available at http://localhost:8000
+
+## API Documentation
+
+Once the application is running, you can access:
+- Interactive API documentation: http://localhost:8000/docs
+- Alternative API documentation: http://localhost:8000/redoc
+
+## Running Tests
+
+```bash
+# Run all tests
+pytest
+
+# Run with verbose output
+pytest -v
+
+# Run specific test file
+pytest tests/routes/test_items.py
+```
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
