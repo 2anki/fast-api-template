@@ -1,6 +1,11 @@
+# FastAPI and core dependencies
 fastapi
 uvicorn
-pytest
-pytest-asyncio
 python-multipart
 httpx
+
+# Testing dependencies
+pytest
+pytest-asyncio
+pytest-playwright
+playwright

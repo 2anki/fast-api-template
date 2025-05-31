@@ -19,8 +19,18 @@ fast-api-template/
 │   └── services/                 # Business logic
 │       ├── __init__.py
 │       └── item_service.py       # Item-related business logic
+├── e2e_tests/                    # End-to-end tests with Playwright
+│   ├── README.md                 # E2E testing documentation
+│   ├── conftest.py               # Test fixtures for E2E tests
+│   ├── playwright.config.py      # Playwright configuration
+│   ├── pages/                    # Page Object Models
+│   │   ├── base_page.py          # Base page object
+│   │   └── api_docs_page.py      # API docs page object
+│   └── tests/                    # E2E test files
+│       ├── test_api_docs.py      # Tests for API documentation
+│       └── test_api_endpoints.py # Tests for API endpoints
 ├── main.py                       # Entry point for running the app
-├── tests/                        # Test directory
+├── tests/                        # Unit/Integration test directory
 │   ├── __init__.py
 │   ├── conftest.py               # Pytest fixtures
 │   ├── routes/                   # Route tests
@@ -35,9 +45,10 @@ fast-api-template/
 ## Features
 
 - Modular architecture with separation of concerns
-- Comprehensive test suite
+- Comprehensive test suite with unit, integration, and end-to-end tests
 - Clean project structure
 - Type hints throughout the codebase
+- End-to-end testing with Playwright
 - Ready for production deployment
 
 ## Installation
@@ -71,8 +82,10 @@ Once the application is running, you can access:
 
 ## Running Tests
 
+### Unit and Integration Tests
+
 ```bash
-# Run all tests
+# Run all unit/integration tests
 pytest
 
 # Run with verbose output
@@ -81,6 +94,24 @@ pytest -v
 # Run specific test file
 pytest tests/routes/test_items.py
 ```
+
+### End-to-End Tests with Playwright
+
+```bash
+# Install Playwright browsers
+playwright install
+
+# Run all E2E tests
+pytest e2e_tests/tests
+
+# Run with UI mode (non-headless)
+PLAYWRIGHT_HEADLESS=false pytest e2e_tests/tests
+
+# Run with slow motion for debugging
+PLAYWRIGHT_SLOW_MO=100 pytest e2e_tests/tests
+```
+
+See [e2e_tests/README.md](e2e_tests/README.md) for more details on the end-to-end tests.
 
 ## License
 
