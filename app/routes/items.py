@@ -1,3 +1,5 @@
+from typing import Optional
+
 from fastapi import APIRouter
 
 from app.models.items import Item
@@ -11,7 +13,7 @@ router = APIRouter(
 
 
 @router.get("/{item_id}")
-def read_item(item_id: int, q: str | None = None):
+def read_item(item_id: int, q: Optional[str] = None):
     return {"item_id": item_id, "q": q}
 
 
