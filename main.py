@@ -1,23 +1,9 @@
-from fastapi import FastAPI
-from pydantic import BaseModel
+import uvicorn
+from app.main import app
 
-app = FastAPI()
+# This file serves as the entry point for running the application
+# It imports the app instance from the app package
 
-class Item(BaseModel):
-    name: str
-    description: str | None = None
-    price: float
-    tax: float | None = None
-
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to FastAPI!"}
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: str | None = None):
-    return {"item_id": item_id, "q": q}
-
-@app.post("/items/")
-def create_item(item: Item):
-    total = item.price + (item.tax or 0)
-    return {"name": item.name, "total_price": total}
+if __name__ == "__main__":
+    # Run the application with uvicorn when this script is executed directly
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
