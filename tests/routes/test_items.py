@@ -4,13 +4,14 @@ def test_read_item(client):
     assert response.status_code == 200
     assert response.json() == {"item_id": 42, "q": "test-query"}
 
+
 def test_create_item(client):
     """Test the create_item endpoint correctly processes an item and returns the expected result."""
     payload = {
         "name": "Book",
         "description": "Fiction novel",
         "price": 100.0,
-        "tax": 10.0
+        "tax": 10.0,
     }
     response = client.post("/items/", json=payload)
     assert response.status_code == 200
