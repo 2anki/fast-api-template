@@ -20,13 +20,16 @@ fast-api-template/
 │       ├── __init__.py
 │       └── item_service.py       # Item-related business logic
 ├── e2e_tests/                    # End-to-end tests with Playwright
+│   ├── __init__.py
 │   ├── README.md                 # E2E testing documentation
 │   ├── conftest.py               # Test fixtures for E2E tests
 │   ├── playwright.config.py      # Playwright configuration
 │   ├── pages/                    # Page Object Models
+│   │   ├── __init__.py
 │   │   ├── base_page.py          # Base page object
 │   │   └── api_docs_page.py      # API docs page object
 │   └── tests/                    # E2E test files
+│       ├── __init__.py
 │       ├── test_api_docs.py      # Tests for API documentation
 │       └── test_api_endpoints.py # Tests for API endpoints
 ├── main.py                       # Entry point for running the app
@@ -50,7 +53,6 @@ fast-api-template/
 - Type hints throughout the codebase
 - End-to-end testing with Playwright
 - CI/CD with GitHub Actions
-- Docker support for containerization
 - Ready for production deployment
 
 ## Installation
@@ -132,27 +134,6 @@ Runs on push to main and pull requests:
 - Checks code with flake8 for errors
 - Verifies formatting with black
 - Validates import order with isort
-
-### Docker Workflow
-
-Runs on push to main and tags:
-- Builds the Docker image
-- Tests the image
-- Pushes the image to GitHub Container Registry (on main branch or tags)
-
-## Docker
-
-You can build and run the application using Docker:
-
-```bash
-# Build the Docker image
-docker build -t fast-api-template .
-
-# Run the container
-docker run -p 8000:8000 fast-api-template
-```
-
-The API will be available at http://localhost:8000
 
 ## License
 
