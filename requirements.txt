@@ -9,3 +9,9 @@ pytest
 pytest-asyncio
 pytest-playwright
 playwright
+pytest-cov
+
+# Linting and formatting
+flake8
+black
+isort

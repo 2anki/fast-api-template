@@ -49,6 +49,8 @@ fast-api-template/
 - Clean project structure
 - Type hints throughout the codebase
 - End-to-end testing with Playwright
+- CI/CD with GitHub Actions
+- Docker support for containerization
 - Ready for production deployment
 
 ## Installation
@@ -112,6 +114,45 @@ PLAYWRIGHT_SLOW_MO=100 pytest e2e_tests/tests
 ```
 
 See [e2e_tests/README.md](e2e_tests/README.md) for more details on the end-to-end tests.
+
+## CI/CD with GitHub Actions
+
+This project includes GitHub Actions workflows for continuous integration and deployment:
+
+### Test Workflow
+
+Runs on push to main and pull requests:
+- Executes unit and integration tests on multiple Python versions
+- Runs end-to-end tests with Playwright
+- Uploads test coverage to Codecov
+
+### Lint Workflow
+
+Runs on push to main and pull requests:
+- Checks code with flake8 for errors
+- Verifies formatting with black
+- Validates import order with isort
+
+### Docker Workflow
+
+Runs on push to main and tags:
+- Builds the Docker image
+- Tests the image
+- Pushes the image to GitHub Container Registry (on main branch or tags)
+
+## Docker
+
+You can build and run the application using Docker:
+
+```bash
+# Build the Docker image
+docker build -t fast-api-template .
+
+# Run the container
+docker run -p 8000:8000 fast-api-template
+```
+
+The API will be available at http://localhost:8000
 
 ## License
 
