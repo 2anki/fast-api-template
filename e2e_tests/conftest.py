@@ -43,7 +43,7 @@ def page(playwright_browser):
     yield page
     page.close()
 
-@pytest.fixture(scope="function")
+@pytest.fixture(scope="session")
 def base_url():
     """Return the base URL for the FastAPI server."""
     return f"http://localhost:{SERVER_PORT}"
